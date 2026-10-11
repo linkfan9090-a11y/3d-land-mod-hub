@@ -1,10 +1,11 @@
 
+.SUFFIXES:
+
 TARGET := 3DLandModHub
 BUILD := build
-
 SOURCES := .
-INCLUDES :=
 DATA :=
+INCLUDES :=
 GRAPHICS :=
 
-include $(DEVKITPRO)/libctru/3ds_rules
+include $(DEVKITARM)/3ds_rules
