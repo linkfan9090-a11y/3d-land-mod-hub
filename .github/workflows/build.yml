@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compile 3DS homebrew
-        run: make
+        run: make -f Makefile 
 
       - name: Save the 3DSX build
         uses: actions/upload-artifact@v4
