@@ -1,15 +1,15 @@
 name: Build 3D Land Mod Hub
 
 'on':
-  push:
+    push:
   workflow_dispatch:
 
 jobs:
-  build:
+      build:
     runs-on: ubuntu-latest
     container:
       image: devkitpro/devkitarm:latest
-    steps:
+       steps:
       - name: Get source code
         uses: actions/checkout@v4
 
