@@ -7,4 +7,4 @@ jobs:
       image: devkitpro/devkitarm:latest
     steps:
       - uses: actions/checkout@v4
-      - run: make
+      - run: make 2>&1 || (echo "BUILD FAILED"; exit 1)
