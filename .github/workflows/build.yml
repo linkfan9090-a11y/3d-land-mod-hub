@@ -20,7 +20,8 @@ jobs:
           echo "=== DEVKITARM ==="
           echo "$DEVKITARM"
           echo "=== devkitPro rules ==="
-          find /opt/devkitpro -name 3ds_rules 2>/dev/null || true
+          find /opt/devkitpro -name 3ds_rules 2>
+dev/null || true
           echo "=== Compiler ==="
           which arm-none-eabi-gcc || true
           echo "=== Build ==="
