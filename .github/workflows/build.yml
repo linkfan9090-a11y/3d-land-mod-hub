@@ -7,4 +7,11 @@ jobs:
       image: devkitpro/devkitarm:latest
     steps:
       - uses: actions/checkout@v4
-      - run: make 2>&1 || (echo "BUILD FAILED"; exit 1)
+            - name: Show build diagnostics
+        run: |
+          echo "Checking Makefile"
+          cat Makefile
+          echo "Checking devkitPro rules"
+          find /opt/devkitpro -name 3ds_rules
+          echo "Running make"
+          make
