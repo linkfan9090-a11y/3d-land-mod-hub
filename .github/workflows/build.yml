@@ -1,3 +1,4 @@
+
 name: Build 3D Land Mod Hub
 
 on:
@@ -9,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: devkitpro/devkitarm:latest
+      options: --user 1001
 
     steps:
       - name: Get source code
         uses: actions/checkout@v4
 
-      - name: Build homebrew app
+      - name: Compile 3DS homebrew
         run: make
 
-      - name: Save build
+      - name: Save the 3DSX build
         uses: actions/upload-artifact@v4
         with:
           name: 3DLandModHub
           path: 3DLandModHub.3dsx
           if-no-files-found: error
-          
