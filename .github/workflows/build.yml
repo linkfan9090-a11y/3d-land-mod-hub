@@ -1,44 +1,24 @@
 name: Build 3D Land Mod Hub
 
-on:
-push:
-workflow_dispatch:
-
-jobs:
-build:
-runs-on: ubuntu-latest
-container:
-image: devkitpro/devkitarm:latest
-
-name: Build 3D Land Mod Hub
-
 'on':
-push:
-workflow_dispatch:
+  push:
+  workflow_dispatch:
 
 jobs:
-build:
-runs-on: ubuntu-latest
-container:
-image: devkitpro/devkitarm:latest
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkitarm:latest
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v4
 
-steps:
-  - name: Get source code
-    uses: actions/checkout@v4
+      - name: Compile 3DS homebrew
+        run: make
 
-  - name: Check build files
-    run: |
-      pwd
-      ls -la
-      cat Makefile
-      find /opt/devkitpro -name 3ds_rules
-
-  - name: Compile 3DS homebrew
-    run: make
-
-  - name: Save the 3DSX build
-    uses: actions/upload-artifact@v4
-    with:
-      name: 3DLandModHub
-      path: 3DLandModHub.3dsx
-      if-no-files-found: error
+      - name: Save the 3DSX build
+        uses: actions/upload-artifact@v4
+        with:
+          name: 3DLandModHub
+          path: 3DLandModHub.3dsx
+          if-no-files-found: error
