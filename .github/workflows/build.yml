@@ -14,14 +14,11 @@ steps:
   - name: Get source code
     uses: actions/checkout@v4
 
-  - name: Check build environment
+  - name: Check build files
     run: |
-      echo "DEVKITARM=$DEVKITARM"
-      echo "DEVKITPRO=$DEVKITPRO"
       pwd
       ls -la
       cat Makefile
-      ls -la /opt/devkitpro
       find /opt/devkitpro -name 3ds_rules
 
   - name: Compile 3DS homebrew
