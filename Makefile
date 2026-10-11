@@ -1,4 +1,3 @@
-
 .SUFFIXES:
 
 TARGET := 3DLandModHub
