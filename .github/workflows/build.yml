@@ -1,13 +1,19 @@
 name: Build 3D Land Mod Hub
-'on': [push, workflow_dispatch]
+
+'on':
+  push:
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
       image: devkitpro/devkitarm:latest
     steps:
-      - uses: actions/checkout@v4
-            - name: Show build diagnostics
+      - name: Get source code
+        uses: actions/checkout@v4
+
+      - name: Show build diagnostics
         run: |
           echo "Checking Makefile"
           cat Makefile
