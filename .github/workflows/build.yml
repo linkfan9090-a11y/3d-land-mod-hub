@@ -10,6 +10,18 @@ runs-on: ubuntu-latest
 container:
 image: devkitpro/devkitarm:latest
 
+name: Build 3D Land Mod Hub
+
+'on':
+push:
+workflow_dispatch:
+
+jobs:
+build:
+runs-on: ubuntu-latest
+container:
+image: devkitpro/devkitarm:latest
+
 steps:
   - name: Get source code
     uses: actions/checkout@v4
